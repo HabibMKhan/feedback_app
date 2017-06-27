@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html ng-app="app">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body style="height: 3000px;">
+  <div ng-controller="FeedbackController">
+    <h2>Feedback App with {{defaultComments.length}} default comments and {{secondaryComments.length}} secondary comments</h2>
+
+    <h4>First Paragraph</h4>
+    <p>
+      <span class="first">[ Job/Work ] | </span>
+      <span class="second">[ Improvement / Nomination / - ] | </span>
+      <span class="third">[ Grading / - ] </span>
+    </p>
+    <label class="checklist__item" ng-repeat="comment in defaultComments">
+      <input
+      type="checkbox"
+      value="{{comment}}"
+      class="checklist__item"
+      ng-click="toggleDefaultCommentSelection(comment, $index)">
+      </input>
+      {{comment}}
+      <br />
+    </label>
+
+    <h4>Second Paragraph</h4>
+    <p>
+      <span class="first">[ Overall Performance ] | </span>
+      <span class="second">[ Looking Ahead ] | </span>
+      <span class="third">[ ] </span>
+    </p>
+    <label class="checklist__item" ng-repeat="secondaryComment in secondaryComments">
+      <input
+      class="checklist__item"
+      type="checkbox"
+      value="{{secondaryComment}}"
+      ng-click="toggleSecondaryCommentSelection(secondaryComment, $index)">
+      </input>
+      {{secondaryComment}}
+      <br />
+    </label>
+
+    <textarea style="height: 200px; width: 100%;">
+      {{assignmentName}}:
+      {{defaultParagraph}}
+
+      {{secondaryParagraph}}
+    </textarea>
+
+  </div>
+
+</body>
+
+</html>

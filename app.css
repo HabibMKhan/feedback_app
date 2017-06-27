@@ -1,0 +1,20 @@
+.checklist__item {
+  height: 25px;
+  cursor: pointer;
+}
+
+.checklist__item:hover {
+  color: blue;
+}
+
+.first {
+  color: purple;
+}
+
+.second {
+  color: green;
+}
+
+.third {
+  color: red;
+}
